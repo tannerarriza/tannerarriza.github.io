@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+<style>
+    .education-box:hover 
+    {
+        transform: scale(1.025);
+    }
+
+    #fade-in {
+        animation: fadein 1s;
+        -moz-animation: fadein 1s; /* Firefox */
+        -webkit-animation: fadein 1s; /* Safari and Chrome */
+        -o-animation: fadein 1s; /* Opera */
+    }
+
+    a {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    
+
+    @keyframes fadein {
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+
+    @-moz-keyframes fadein { /* Firefox */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+
+    @-webkit-keyframes fadein { /* Safari and Chrome */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+
+    @-o-keyframes fadein { /* Opera */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+<div style="display: flex; justify-content: center; padding-top: 100px; padding-bottom: 20px; background-color: #FEF4D8; border-bottom: #B2211D; border-bottom-style: solid;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div id="fade-in">
+                    <div id="column1" style="float:left; margin:0; width:10%;">
+                        <img src="https://scontent-sjc3-1.cdninstagram.com/v/t51.2885-19/s320x320/79162691_824371664682032_3655331955639058432_n.jpg?tp=1&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_ohc=843JxIAP5cwAX-v5q5s&oh=8861ef9de97eada71ee6db031122dd34&oe=606E27D9" style="border-radius: 50%; border: black solid 5px;" width="200" height="200">
+                    </div>
+                    <div id="column2" style="float:right; margin:20px; width:70%;">
+                        <h1>{{ greeting }}</h1>
+                        <p id="test">{{ intro }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fade-in">
+    <div class="container" style="padding-top: 40px;">
+        <div class="row justify-content-left">
+            <div class="col-auto">
+                <div id="contentBox">
+                    <h3>Personal Education 🏫</h3>
+                    <hr style="margin-left:0; color: #B2211D; background-color: #B2211D; width:25%; height: .2em;"></hr>
+                    <div id="column1" style="float:left; margin:0; width:60%;">
+                        <p>{{ personal_education }}</p>
+                    </div>
+                    <div id="column2" style="float:right; margin:0; width:35%;">
+                        <div class="education-box" style="transition: all .2s ease-in-out; padding-bottom: 10px; padding-right: 30px;">
+                            <a href="https://julianikulski.com/en/portfolio" style="text-decoration: none;">
+                                <article id="education-box">
+                                    <span class="image">
+                                        <img src="//www.thecannabisinvestor.ca/wp-content/uploads/2018/12/shutterstock_379676605.jpg" style="width: 350px; height: 200px; border-top-left-radius: 2%; border-top-right-radius: 2%; overflow: hidden;"></img>
+                                    </span>
+                                    <div class="center", style="height: 80px; width: auto; border: 1px solid rgb(212, 212, 212); padding-top: 15px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; overflow: hidden;">
+                                        <h5 style="text-indent: 3%; ">💰 Investing<h5>
+                                        <p style="color: black; font-size: 12px; opacity: 80%;">
+                                            <span style="margin-left: 3%; background: #D96704; border-radius: 5px; height: 15px; display: inline-block; overflow: hidden; color: white;">
+                                                ‏‏‎ ‎‎‎‏‏‎ Finance ‎‏‏‎ ‎
+                                            </span>
+                                        </p>
+                                    </div>
+                                </article>
+                            </a>
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </div>
+
+    <hr style="width:80%;text-align:center;padding-top: 20px;">
+
+    <div class="container">
+        <div class="row justify-content-left">
+            <div class="col-auto">
+                <div id="contentBox" style="padding-bottom: 10px">
+                    <h3>Current Project 🚧</h3>
+                    <hr style="margin-left:0; color: #B2211D; background-color: #B2211D; width:21%; height: .2em;"></hr>
+                    <p>{{ current_project }}</p>
+                    <p>I have a lot of projects finished and planned, ranging from simple data analyses to full-on discord bots. You can view the whole list here!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr style="width:80%;text-align:center;padding-top: 20px;">
+
+    <div class="container">
+        <div class="row justify-content-left">
+            <div class="col-auto">
+                <div id="contentBox">
+                    <h3>About Me 🕺</h3>
+                    <hr style="margin-left:0; color: #B2211D; background-color: #B2211D; width:14%; height: .2em;"></hr>
+                    <div id="column2" style="float:left; margin:0; width:35%;">
+                        <span class="image">
+                            <img src="../static/IMG_7878.jpg" height="300px" width="400px" style="padding-top: 10px;"></img>
+                        </span>
+                    </div>
+                    <div id="column1" style="float:right; margin:0; width:60%; padding-top: 10px;">
+                        <p>I currently work as a Data Scientist at Barracuda Networks, where I focus on advancing product led growth within the organization one project at a time.</p>
+                        <p>Before joining Barracuda, I worked at McAfee for ~9 months as a Data Science intern.</p>
+                        <p>I attended UC Berkeley and obtained a degree in Data Science with a focus in Business Analytics, a minor in Computer Science, and a certificate in Entrepreneurship and Technology.</p>
+                        <p>In my free time, I love doing side projects, watching Twitch, cooking, hanging out with my cat, golfing, playing soccer, and learning new things.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}

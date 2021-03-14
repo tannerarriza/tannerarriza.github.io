@@ -1,0 +1,432 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+
+<style>
+	.container {
+		overflow: hidden;
+	}
+
+	.filterDiv {
+		display: none; /* Hidden by default */
+	}
+
+	/* The "show" class is added to the filtered elements */
+	.show {
+		display: block;
+	}
+
+	/* Style the buttons */
+	.btn {
+		border: 1px solid rgb(255, 255, 255);
+		border-radius: 5px;
+		outline: none;
+		padding: 8px 30px;
+		cursor: pointer;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	/* Add a light grey background on mouse-over */
+	.btn:hover {
+		border-color: rgb(141, 139, 139);
+	}
+
+	/* Add a dark background to the active button */
+	.btn.active {
+		border: 2px solid black
+	}
+	
+	.grid-container {
+		display: grid;
+		grid-template-columns: auto auto auto;
+	}
+
+	.grid-item {
+		display: inline-flex;
+		font-size: 30px;
+	}
+
+	.education-box:hover {
+        transform: scale(1.025);
+    }
+
+    #fade-in {
+        animation: fadein 1s;
+        -moz-animation: fadein 1s; /* Firefox */
+        -webkit-animation: fadein 1s; /* Safari and Chrome */
+        -o-animation: fadein 1s; /* Opera */
+    }
+
+    a {
+        color: #000000;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+	@keyframes fadein {
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+
+    @-moz-keyframes fadein { /* Firefox */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+
+    @-webkit-keyframes fadein { /* Safari and Chrome */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+
+    @-o-keyframes fadein { /* Opera */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+<head>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+
+	<div style="display: flex; justify-content: center; padding-bottom: 0px; background-color: #FEF4D8; padding-bottom: 40px; border-bottom: #B2211D; border-bottom-style: solid;">
+		<div class="container">
+			<div class="row justify-content-left">
+				<div class="col-auto">
+					<div id="fade-in">
+						<div id="contentBox">
+							<div id="column1" style="float:left; margin:0; width:60%; padding-top: 100px; ">
+								<h1 style="text-align: left;">Personal Education 🏫</h1>
+								<p style="font-size: 16px;">{{ education_intro }}</p>
+							</div>
+							<div id="column2" style="float:right; margin:0; width: 40%; height:100%; padding-top: 120px;">
+								<canvas id="myChart"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id='fade-in'>
+		<div style="display: flex; justify-content: center; padding-top: 50px; padding-bottom: 0px; background-color: #FFFFFF;">
+			<div class="container">
+				<div class="row justify-content-left">
+					<div class="col-auto" style="display: inline-flex;">
+						<h2>Topics</h2>
+						<div id="myBtnContainer" style="padding-inline-start: 50px; width: 100%; ">
+							<button class="btn active" onclick="filterSelection('all')" style="background-color: rgb(236, 236, 236);">Show all</button>
+							<button class="btn" onclick="filterSelection('ml')" style="background-color: #018140; color: white;">ML</button>
+							<button class="btn" onclick="filterSelection('finance')" style="background-color: #D96704; color: white;">Finance</button>
+							<button class="btn" onclick="filterSelection('swe')" style="background-color: #9D1EC7; color: white;">SWE</button>
+							<button class="btn" onclick="filterSelection('stats')" style="background-color: #FDE0D2; color: black">Statistics</button>
+						</div>
+					</div>
+				</div>
+				<hr style="margin-left:0; color: #B2211D; background-color: #B2211D; width:100%; height: .2em;"></hr>
+			</div>
+		</div>
+	</div>
+
+	<div id='fade-in'>
+		<div style="display: flex; justify-content: center; padding-bottom: 30px; background-color: #FFFFFF;">
+			<div class="container">
+				<div class="row justify-content-left">
+					<div class="col-auto">
+						<div class="grid-container" style="width: 100%; padding-top: 10px">
+							<div class="grid-item">
+								<div class="filterDiv finance">
+									<div class="education-box" style="transition: all .2s ease-in-out; padding-bottom: 30px; padding-right: 30px;">
+										<a href="https://julianikulski.com/en/portfolio" style="text-decoration: none;">
+											<article id="education-box">
+												<span class="image">
+													<img src="//www.thecannabisinvestor.ca/wp-content/uploads/2018/12/shutterstock_379676605.jpg" style="width: 350px; height: 200px; border-top-left-radius: 2%; border-top-right-radius: 2%; overflow: hidden;"></img>
+												</span>
+												<div class="center", style="height: 80px; width: auto; border: 1px solid rgb(212, 212, 212); padding-top: 15px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; overflow: hidden;">
+													<h5 style="text-indent: 3%; ">💰 Investing<h5>
+													<p style="color: black; font-size: 12px; opacity: 80%;">
+														<span style="margin-left: 3%; background: #D96704; border-radius: 5px; height: 15px; display: inline-block; overflow: hidden; color: white;">
+															‏‏‎ ‎‎‎‏‏‎ Finance ‎‏‏‎ ‎
+														</span>
+													</p>
+												</div>
+											</article>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="grid-item">
+								<div class="filterDiv ml">
+									<div class="education-box" style="transition: all .2s ease-in-out; padding-bottom: 30px; padding-right: 30px;">
+										<a href="https://julianikulski.com/en/portfolio" style="text-decoration: none;">
+											<article id="education-box">
+												<span class="image">
+													<img src="https://blog.evolvemachinelearners.com/wp-content/uploads/2019/07/DeepMind-1-Clickhole-1280x720.jpg" style="width: 350px; height: 200px; border-top-left-radius: 2%; border-top-right-radius: 2%; overflow: hidden;"></img>
+												</span>
+												<div class="center", style="height: 80px; width: auto; border: 1px solid rgb(212, 212, 212); padding-top: 15px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; overflow: hidden;">
+													<h5 style="text-indent: 3%;">🤖 Reinforcement Learning<h5>
+													<p style="color: black; font-size: 12px; opacity: 80%;">
+														<span style="margin-left: 3%; background: #018140; border-radius: 5px; height: 15px; display: inline-block; overflow: hidden; color: white;">
+															‏‏‎ ‎‎‎‏‏‎ ML‎‏‏‎ ‎‏‏‎ ‎
+														</span>
+													</p>
+												</div>
+											</article>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="grid-item">
+								<div class="filterDiv ml">
+									<div class="education-box" style="transition: all .2s ease-in-out; padding-bottom: 30px; padding-right: 30px;">
+										<a href="https://julianikulski.com/en/portfolio" style="text-decoration: none;">
+											<article id="education-box">
+												<span class="image">
+													<img src="https://miro.medium.com/max/1200/1*rTZvrFD258ZZwvGy7nyqDw.jpeg" style="width: 350px; height: 200px; border-top-left-radius: 2%; border-top-right-radius: 2%; overflow: hidden;"></img>
+												</span>
+												<div class="center", style="height: 80px; width: auto; border: 1px solid rgb(212, 212, 212); padding-top: 15px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; overflow: hidden;">
+													<h5 style="text-indent: 3%;">🤝 Recommendation<h5>
+													<p style="color: black; font-size: 12px; opacity: 80%;">
+														<span style="margin-left: 3%; background: #018140; border-radius: 5px; height: 15px; display: inline-block; overflow: hidden; color: white;">
+															‏‏‎ ‎‎‎‏‏‎ ‎ML ‎‏‏‎ ‎
+														</span>
+													</p>
+												</div>
+											</article>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="grid-item">
+								<div class="filterDiv swe">
+									<div class="education-box" style="transition: all .2s ease-in-out; padding-bottom: 30px; padding-right: 30px;">
+										<a href="https://julianikulski.com/en/portfolio" style="text-decoration: none;">
+											<article id="education-box">
+												<span class="image">
+													<img src="https://miro.medium.com/max/3840/0*hmFg5WnkeqLcRLjA.jpg" style="width: 350px; height: 200px; border-top-left-radius: 2%; border-top-right-radius: 2%; overflow: hidden;"></img>
+												</span>
+												<div class="center", style="height: 80px; width: auto; border: 1px solid rgb(212, 212, 212); padding-top: 15px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; overflow: hidden;">
+													<h5 style="text-indent: 3%;">⚙️ Data Engineering<h5>
+													<p style="color: black; font-size: 12px; opacity: 80%;">
+														<span style="margin-left: 3%; background: #9D1EC7; border-radius: 5px; height: 15px; display: inline-block; overflow: hidden; color: white;">
+															‏‏‎ ‎‎‎‏‏‎ ‎SWE ‎‏‏‎ ‎
+														</span>
+													</p>
+												</div>
+											</article>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="grid-item">
+								<div class="filterDiv swe">
+									<div class="education-box" style="transition: all .2s ease-in-out; padding-bottom: 30px; padding-right: 30px;">
+										<a href="https://julianikulski.com/en/portfolio" style="text-decoration: none;">
+											<article id="education-box">
+												<span class="image">
+													<img src="https://elementor.com/marketing/wp-content/uploads/sites/9/2020/10/29.09.20_WEB-DESIGN-PORTFOLIO_BLOG-03-08-1-1024x538.png" style="width: 350px; height: 200px; border-top-left-radius: 2%; border-top-right-radius: 2%; overflow: hidden;"></img>
+												</span>
+												<div class="center", style="height: 80px; width: auto; border: 1px solid rgb(212, 212, 212); padding-top: 15px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; overflow: hidden;">
+													<h5 style="text-indent: 3%;">🖼️ Portfolio Building<h5>
+													<p style="color: black; font-size: 12px; opacity: 80%;">
+														<span style="margin-left: 3%; background: #9D1EC7; border-radius: 5px; height: 15px; display: inline-block; overflow: hidden; color: white;">
+															‏‏‎ ‎‎‎‏‏‎ ‎SWE ‎‏‏‎ ‎
+														</span>
+													</p>
+												</div>
+											</article>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="grid-item">
+								<div class="filterDiv stats">
+									<div class="education-box" style="transition: all .2s ease-in-out; padding-bottom: 30px; padding-right: 30px;">
+										<a href="https://julianikulski.com/en/portfolio" style="text-decoration: none;">
+											<article id="education-box">
+												<span class="image">
+													<img src="https://www.mailerlite.com/assets/blog/ab-test-email-campaign.jpg" style="width: 350px; height: 200px; border-top-left-radius: 2%; border-top-right-radius: 2%; overflow: hidden;"></img>
+												</span>
+												<div class="center", style="height: 80px; width: auto; border: 1px solid rgb(212, 212, 212); padding-top: 15px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; overflow: hidden;">
+													<h5 style="text-indent: 3%;">🧪 Experimentation<h5>
+													<p style="color: black; font-size: 12px; opacity: 80%;">
+														<span style="margin-left: 3%; background: #FDE0D2; border-radius: 5px; height: 15px; display: inline-block; overflow: hidden;">
+															‏‏‎ ‎‎‎‏‏‎ Statistics ‎‏‏‎ ‎
+														</span>
+													</p>
+												</div>
+											</article>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id='fade-in'>
+		<div style="display: flex; justify-content: center; padding-top: 30px; padding-bottom: 0px; background-color: #FFFFFF;">
+			<div class="container">
+				<div class="row justify-content-left">
+					<div class="col-auto" style="display: inline-flex;">
+						<h2>Workshops</h2>
+					</div>
+				</div>
+				<hr style="margin-left:0; color: #B2211D; background-color: #B2211D; width:100%; height: .2em;"></hr>
+			</div>
+		</div>
+	</div>
+
+	<div id="fade-in">
+		<div style="display: flex; justify-content: center; padding-top: 25px; padding-bottom: 30px; ">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-auto">
+						<h2>Currently under construction 🧑🏻‍🔧</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	var ctx = document.getElementById('myChart').getContext('2d');
+	options = {
+		scale: {
+			angleLines: {
+				display: false
+			},
+			ticks: {
+				suggestedMin: 0,
+				suggestedMax: 100,
+				display: false
+			},
+			pointLabels: {
+            	fontSize: 16,
+				fontFamily: "Helvetica",
+				fontColor: "rgba(0, 0, 0, .8)",
+        }},
+		
+		tooltips: { 
+          callbacks: {
+                        label: function(tooltipItem, data) {
+                            return returnLevel(tooltipItem.yLabel);
+                        },
+                    }
+            },
+		
+			legend: {
+            "display": false,
+        },
+		
+		label: {
+			display: false,
+			labels: {
+                fontSize: 40,
+            }
+		},
+
+	};
+
+	var myRadarChart = new Chart(ctx, {
+		type: 'radar',
+		data: {
+			"labels": ['Business Strategy', 'Statistics/ML', 'SWE', 'Data Governance', 'PM', 'UI/UX'],
+			"datasets": [{
+				"label": "Skill Rating",
+				"data": [70, 80, 60, 80, 60, 40],
+				"fill": true,
+				"backgroundColor": "rgba(246,157,157,.5)",
+				"borderColor": "#B2211D"
+			}]},
+		options: options});
+
+	function returnLevel(val) {
+		if (val > 0 & val <=  20) {
+			return "Learning"
+		} else if (val > 20 & val <= 40) {
+			return "Beginner"
+		} else if (val > 40 & val <= 60) {
+			return "Intermediate"
+		} else if (val > 60 & val <= 80) {
+			return "Advanced"
+		} else {
+			return "Expert"
+		}
+	}
+
+	filterSelection("all")
+	function filterSelection(c) {
+	var x, i;
+	x = document.getElementsByClassName("filterDiv");
+	if (c == "all") c = "";
+	// Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+	for (i = 0; i < x.length; i++) {
+		w3RemoveClass(x[i], "show");
+		console.log()
+		if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+	}
+	}
+
+	// Show filtered elements
+	function w3AddClass(element, name) {
+	var i, arr1, arr2;
+	arr1 = element.className.split(" ");
+	arr2 = name.split(" ");
+	for (i = 0; i < arr2.length; i++) {
+		if (arr1.indexOf(arr2[i]) == -1) {
+		element.className += " " + arr2[i];
+		}
+	}
+	}
+
+	// Hide elements that are not selected
+	function w3RemoveClass(element, name) {
+	var i, arr1, arr2;
+	arr1 = element.className.split(" ");
+	arr2 = name.split(" ");
+	for (i = 0; i < arr2.length; i++) {
+		while (arr1.indexOf(arr2[i]) > -1) {
+		arr1.splice(arr1.indexOf(arr2[i]), 1);
+		}
+	}
+	element.className = arr1.join(" ");
+	}
+
+	// Add active class to the current control button (highlight it)
+	var btnContainer = document.getElementById("myBtnContainer");
+	var btns = btnContainer.getElementsByClassName("btn");
+	for (var i = 0; i < btns.length; i++) {
+	btns[i].addEventListener("click", function() {
+		var current = document.getElementsByClassName("active");
+		current[0].className = current[0].className.replace(" active", "");
+		this.className += " active";
+	});
+	}
+</script>
+{% endblock %}

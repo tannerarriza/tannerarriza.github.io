@@ -1,0 +1,18 @@
+.container
+{
+    padding-top: 20px;
+    min-height: 500px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.col-auto
+{
+    position: absolute;
+    top: 50%;
+}
+
+.navbar-brand
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+}

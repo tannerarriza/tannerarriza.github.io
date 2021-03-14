@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="https://scontent-sjc3-1.cdninstagram.com/v/t51.2885-19/s320x320/79162691_824371664682032_3655331955639058432_n.jpg?tp=1&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_ohc=843JxIAP5cwAX-v5q5s&oh=8861ef9de97eada71ee6db031122dd34&oe=606E27D9">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Portfolio Website</title>
+  </head>
+  
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-#FFFFFF" style="position: fixed; background-color: white; width: 100%; z-index: 9999; border-bottom: #B2211D; border-bottom-style: solid;">
+        <a class="navbar-brand" href="index" style="display: inline-block;">
+          <img src="https://scontent-sjc3-1.cdninstagram.com/v/t51.2885-19/s320x320/79162691_824371664682032_3655331955639058432_n.jpg?tp=1&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_ohc=843JxIAP5cwAX-v5q5s&oh=8861ef9de97eada71ee6db031122dd34&oe=606E27D9" style="border-radius: 50%; border: black solid 2px; height: 40px; width: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a target="_blank" class="nav-link" id="{{ id }}-nav-link" href="https://medium.com/@tannerarrizabalaga">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main style="padding-bottom: 40px;">
+        {% block main %}{% endblock %}
+      </main>
+      
+      
+
+      <footer class="small text-center text-muted" style="background-color: #FEF4D8; padding: 10px;">
+        <p style="font-size: 16px; font-weight: lighter;">Other Platforms/Resources</p>
+        <ul>
+            <li style="margin-right: 40px; display: inline-block;">
+                <a href="https://www.linkedin.com/in/tannerarriza/">
+                    <img src="https://evergreenengineering.com/wp-content/uploads/2019/06/LinkedIn_logo_initials.png" style=" height: 30px; width: 30px;">
+                </a>
+            </li>
+            <li style="margin-right: 40px; display: inline-block;">
+                <a href="https://github.com/tannerarriza">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-J408eHm6I4Z2xKByNNQWGRF41-aX5SRfpQ&usqp=CAU" style=" height: 30px; width: 30px;">
+                </a>
+            </li>
+            <li style="margin-right: 40px; display: inline-block;">
+                <a href="https://medium.com/@tannerarrizabalaga">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Medium_logo_Monogram.svg/1200px-Medium_logo_Monogram.svg.png" style=" height: 30px; width: 30px;">
+                </a>
+            </li>
+            <li style="margin-right: 40px; display: inline-block;">
+                <a href="https://medium.com/@tannerarrizabalaga">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/51eFJFSBSLL.png" style=" height: 30px; width: 30px;">
+                </a>
+            </li>
+        </ul>
+      </footer>
+      
+
+      <footer class="small text-center text-muted" style="padding-top: 20px;">
+        <p class="copyright">Copyright &copy; 2021 | Tanner Arrizabalaga</p>
+      </footer>
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  </body>
+</html>
