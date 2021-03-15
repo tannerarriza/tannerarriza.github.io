@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+<style>
+     .education-box:hover 
+    {
+        transform: scale(1.025);
+    }
+
+    #fade-in {
+        animation: fadein 1s;
+        -moz-animation: fadein 1s; /* Firefox */
+        -webkit-animation: fadein 1s; /* Safari and Chrome */
+        -o-animation: fadein 1s; /* Opera */
+    }
+
+    a {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    
+
+    @keyframes fadein {
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+
+    @-moz-keyframes fadein { /* Firefox */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+
+    @-webkit-keyframes fadein { /* Safari and Chrome */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+
+    @-o-keyframes fadein { /* Opera */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+
+<div id="fade-in">
+    <div style="display: flex; justify-content: center; padding-top: 150px; padding-bottom: 30px; ">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <h2>Currently under construction 🧑🏻‍🔧</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

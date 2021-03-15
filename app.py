@@ -35,3 +35,27 @@ def education():
 
     return render_template('/education.html', 
                             education_intro=education_intro)
+
+@app.route('/investing', methods=['POST', 'GET'])
+def investing():
+    return render_template('/investing.html')
+
+@app.route('/data_engineering', methods=['POST', 'GET'])
+def data_engineering():
+    return render_template('/data_engineering.html')
+
+@app.route('/experimentation', methods=['POST', 'GET'])
+def experimentation():
+    return render_template('/experimentation.html')
+
+@app.route('/recommendation', methods=['POST', 'GET'])
+def recommendation():
+    return render_template('/recommendation.html')
+
+@app.route('/reinforcement_learning', methods=['POST', 'GET'])
+def reinforcement_learning():
+    return render_template('/reinforcement_learning.html')
+
+@app.route('/ui_ux', methods=['POST', 'GET'])
+def ui_ux():
+    return render_template('/ui_ux.html')
